@@ -14,7 +14,7 @@
 import bpy
 
 bl_info = {
-    "name": "Weight Transfer Panel",
+    "name": "Vextex Weight Transfer Panel",
     "author": "kev-fbx",
     "description": "N-panel menu for quick weight transfer",
     "blender": (3, 6, 0),

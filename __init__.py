@@ -17,7 +17,7 @@ bl_info = {
     "name": "Weight Transfer Panel",
     "author": "kev-fbx",
     "description": "N-panel menu for quick weight transfer",
-    "blender": (4, 0, 0),
+    "blender": (3, 6, 0),
     "version": (1, 0, 0),
     "location": "3D View > Properties > Tool",
     "warning": "",

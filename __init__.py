@@ -24,12 +24,23 @@ bl_info = {
     "category": "Rigging",
 }
 
-class VIEW3D_PT_WeightTransferPanel(bpy.types.Panel):
+class transfer_weights(bpy.types.Operator):
+    """Transfers vertex weights between meshes"""
+    bl_label = "Transfer weights"
+    bl_idname = "view3d.transfer_weights"
+    bl_info = "Transfers vertex weights between meshes"
+    
+    def execute(self, context):
+        bpy.ops.paint.weight_paint_toggle()
+        bpy.ops.object.data_transfer(use_reverse_transfer=True, data_type='VGROUP_WEIGHTS', vert_mapping='POLYINTERP_NEAREST', layers_select_src='NAME', layers_select_dst='ALL')
+        return {"FINISHED"}
+
+class WEIGHT_TRANSFER_PT_ui(bpy.types.Panel):
     bl_label = "Weight Transfer"
     bl_idname = "VIEW3D_PT_Weight_Transfer"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "Weight Transfer"
+    bl_category = "Tool"
 
     def draw(self, context):
         """Define the layout of the panel"""
@@ -37,22 +48,19 @@ class VIEW3D_PT_WeightTransferPanel(bpy.types.Panel):
         scene = context.scene
         row = layout.row()
         
-        layout.label(text="Source Mesh:")
         row = layout.row(align=True)
-        row.prop_search(scene, "target_rig", bpy.data, "objects", text="")
-        row.operator("object.pick_mesh", text="", icon='EYEDROPPER')
-
-        layout.label(text="Target Mesh:")
-        row = layout.row(align=True)
-        row.prop_search(scene, "target_rig", bpy.data, "objects", text="")
-        row.operator("object.pick_mesh", text="", icon='EYEDROPPER')
-
+        layout.operator("view3d.transfer_weights")
+        
+classes = [transfer_weights, WEIGHT_TRANSFER_PT_ui]
         
 def register():
-    bpy.utils.register_class(VIEW3D_PT_WeightTransferPanel)
+    for cls in classes:
+        bpy.utils.register_class(cls)
+    
 
 def unregister():
-    bpy.utils.unregister_class(VIEW3D_PT_WeightTransferPanel)
+    for cls in classes:
+        bpy.utils.unregister_class(cls)
 
 if __name__ == "__main__":
     register()

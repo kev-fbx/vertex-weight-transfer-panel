@@ -4,5 +4,5 @@ This script implements an add-on for the 3D modelling program [Blender](https://
 
 # TO-DO
 
-- 
+- Transfer type customisation menu
 - Drop-down mesh selection menu for SOURCE and TARGET meshes

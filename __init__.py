@@ -18,7 +18,7 @@ bl_info = {
     "author": "kev-fbx",
     "description": "N-panel menu for easy weight transfer",
     "blender": (4, 2, 0),
-    "version": (0, 0, 1),
+    "version": (1, 0, 0),
     "location": "3D View > Properties > Weight Transfer",
     "warning": "",
     "category": "Rigging",

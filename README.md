@@ -2,6 +2,9 @@
 
 This script implements an add-on for the 3D modelling program [Blender](https://www.blender.org/), utilising Blender's [Python API](https://docs.blender.org/api/current/index.html). This add-on aims to remove a few steps in between the weight transfer process between meshes and replacing it with an easy-access menu.
 
+# Video Demo
+https://youtu.be/-Lsjk9no7lo
+
 # TO-DO
 
 - Transfer type customisation menu

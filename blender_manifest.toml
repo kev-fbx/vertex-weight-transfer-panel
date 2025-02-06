@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 
-id = "vertex_weight_transfer_panel"
+id = "vertex-weight-transfer-panel-1.0.0"
 version = "1.0.0"
 name = "Vertex Weight Transfer Panel"
 tagline = "This is another extension"

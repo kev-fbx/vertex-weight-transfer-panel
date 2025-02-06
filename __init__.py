@@ -16,26 +16,28 @@ import bpy
 bl_info = {
     "name": "Weight Transfer Panel",
     "author": "kev-fbx",
-    "description": "N-panel menu for easy weight transfer",
+    "description": "N-panel menu for quick weight transfer",
     "blender": (4, 0, 0),
     "version": (1, 0, 0),
-    "location": "3D View > Properties > Weight Transfer",
+    "location": "3D View > Properties > Tool",
     "warning": "",
     "category": "Rigging",
 }
 
 class transfer_weights(bpy.types.Operator):
-    """Transfers vertex weights between meshes"""
+    """Transfer vertex weights between meshes"""
     bl_label = "Transfer weights"
     bl_idname = "view3d.transfer_weights"
     bl_info = "Transfers vertex weights between meshes"
     
+    # Operation to transfer weights
     def execute(self, context):
         bpy.ops.paint.weight_paint_toggle()
         bpy.ops.object.data_transfer(use_reverse_transfer=True, data_type='VGROUP_WEIGHTS', vert_mapping='POLYINTERP_NEAREST', layers_select_src='NAME', layers_select_dst='ALL')
         return {"FINISHED"}
 
 class WEIGHT_TRANSFER_PT_ui(bpy.types.Panel):
+    """UI panel for weight transfer"""
     bl_label = "Weight Transfer"
     bl_idname = "VIEW3D_PT_Weight_Transfer"
     bl_space_type = "VIEW_3D"

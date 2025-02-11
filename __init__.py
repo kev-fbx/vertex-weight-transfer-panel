@@ -29,6 +29,7 @@ class transfer_weights(bpy.types.Operator):
     bl_label = "Transfer weights"
     bl_idname = "view3d.transfer_weights"
     bl_info = "Transfers vertex weights between meshes"
+    bl_options = {'REGISTER', 'UNDO'}
     
     # Operation to transfer weights
     def execute(self, context):

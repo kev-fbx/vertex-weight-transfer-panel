@@ -34,6 +34,7 @@ class transfer_weights(bpy.types.Operator):
     def execute(self, context):
         bpy.ops.paint.weight_paint_toggle()
         bpy.ops.object.data_transfer(use_reverse_transfer=True, data_type='VGROUP_WEIGHTS', vert_mapping='POLYINTERP_NEAREST', layers_select_src='NAME', layers_select_dst='ALL')
+        bpy.ops.paint.weight_paint_toggle()
         return {"FINISHED"}
 
 class WEIGHT_TRANSFER_PT_ui(bpy.types.Panel):
